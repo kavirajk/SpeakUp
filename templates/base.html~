@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SpeakUp</title>
+  </head>
+
+  <body>
+    <div style="background-color:darkred;height:100px;">
+      <div style="text-align:right;color:white">
+	<ul style="list-style-type:none;display:inline;margin:0;padding:0">
+	  <li style="display:inline">Home</li>
+	  <li style="display:inline">Sign Up</li>
+	  <li style="display:inline">Login</li>
+	</ul>
+      </div>
+
+      <div style="text-align:center;color:white;font-size:30px">
+	<p>SpeakUp</p>
+      </div>
+
+    </div>
+  </body>
+</html>

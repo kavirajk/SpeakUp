@@ -1,0 +1,41 @@
+body {
+    margin:0;
+    padding:0;
+}
+
+#banner {
+    background-color:darkred;
+    height:150px;
+}
+
+#navigation {
+    text-align:right;
+    color:white;
+}
+
+#navigation ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+#navigation ul li {
+    display:inline;
+    padding: .2em 1em;
+}
+
+#navigation ul li a {
+    text-decoration:none;
+    color:white;
+}
+
+#navigation ul li a:hover {
+    text-decoration:underline;
+}
+
+#speakup {
+    text-align:center;
+    color:white;
+    font-size:30px;
+}
+

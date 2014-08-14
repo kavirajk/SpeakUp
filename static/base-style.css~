@@ -1,0 +1,10 @@
+#banner {
+    background-color:darkred;
+    height:100px;
+}
+
+#navigation {
+    text-align:right;
+    color:white;
+}
+

@@ -1,0 +1,3 @@
+import web
+
+db=web.database(db='mysql',dbn='Speakup',user='root')

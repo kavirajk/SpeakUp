@@ -1,0 +1,15 @@
+import web
+
+urls=(
+    '/','Index'
+)
+
+app=web.application(urls,globals())
+render=web.template.render("templates",base="base")
+
+class Index:
+    def GET(self):
+        return render.index("Hello World")
+
+if __name__=='__main__':
+    app.run()

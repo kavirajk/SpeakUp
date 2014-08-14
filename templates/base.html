@@ -1,0 +1,31 @@
+$def with (page)
+
+$var cssfile:static/base-style.css
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="static/base-style.css"/>
+    <title>SpeakUp</title>
+  </head>
+
+  <body>
+    <div id="banner">
+      <div id="navigation">
+	<ul>
+	  <li><a href="/">Home</a></li>
+	  <li><a href="/Signup">Sign-Up</a></li>
+	  <li><a href="Login">Login</a></li>
+	</ul>
+      </div>
+
+      <div id="speakup">
+	<p>SpeakUp</p>
+      </div>
+
+    </div>
+
+    $:page
+
+  </body>
+</html>
