@@ -18,9 +18,10 @@ urls=(
 app=web.application(urls,globals())
 store=web.session.DiskStore('sessions')
 session=web.session.Session(app,store,initializer={'login':False,'userid':None})
-
+render_t=web.template.render("templates")
 globals_t= {
-    'content': session
+    'content': session,
+    'render_t': render_t
 }
 
 render=web.template.render("templates",base="base",globals=globals_t)
@@ -33,10 +34,20 @@ class Index:
 class Login:
     def GET(self):
         session.login=True
-        print session.login
+        raise web.seeother("/")
 
 class Signup:
-    pass
+    def GET(self):
+        return render.signup(None)
+    def POST(self):
+        username=web.input().username
+        password=web.input().password
+        repassword=web.input().repassword
+
+        if(password!=repassword):
+            return render.signup("Password didn't match. Try again")
+        else:
+            
 
 class Create:
     pass
@@ -53,6 +64,7 @@ class Delete:
 class Logout:
     def GET(self):
         session.kill()
+        raise web.seeother("/")
 
 if __name__=='__main__':
     app.run()

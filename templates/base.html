@@ -1,7 +1,5 @@
 $def with (page)
 
-$var cssfile:static/base-style.css
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,8 +12,10 @@ $var cssfile:static/base-style.css
       <div id="navigation">
 	<ul>
 	  <li><a href="/">Home</a></li>
-	  <li><a href="/Signup">Sign-Up</a></li>
-	  <li><a href="Login">Login</a></li>
+	  $if content.login:
+	      $:render_t.login_header()
+	  $else:
+	      $:render_t.guest_header()
 	</ul>
       </div>
 
