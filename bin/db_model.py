@@ -7,5 +7,8 @@ def get_all_post():
     return result
 
 def signup(user,hexdigest):
-    db.insert('users',userid=user,password=hexdigest)
-    
+    db.insert('users',user=user,password=hexdigest)
+
+def get_hexdigest(username):
+    hex=db.select('users',where="user=$username")
+    return hex;
