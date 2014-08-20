@@ -39,8 +39,7 @@ body {
     font-size:30px;
 }
 
-#signup-form {
-    line-hieght: 3em
+.center-align{
     width:200px;
     height:200px;
     position: fixed;
@@ -50,9 +49,69 @@ body {
     margin-left: -100px;
 }
 
-#login-form {
-    width:200px
-    height:200px
-    top:50%
-    lef:50%
+#posts-list {
+    line-height:4em;
+    width:500px;
+    position:fixed;
+    top: 40%;
+    left:40%;
+    margin-top: -100px;
+    margin-left: -100px;
+}
+
+#new-story {
+    position:fixed;
+    top:20%;
+    right:5%;
+    width:110px;
+    height:25px;
+    background-color:darkred;
+    text-align:center;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+
+#new-story a {
+    text-decoration:none;
+    color:white;
+}
+
+#create-story {
+    line-height:4em;
+    position:fixed;
+    height:700px;
+    width:900px;
+    top:20%;
+    left:30%;
+}
+
+#create-story-title {
+    height:20px;
+    width:800px;
+    border:none;
+    font-size:20px;
+}
+
+#create-story-content {
+    height:500px;
+    width:800px;
+    border:none;
+    font-size:20px;
+}
+
+input.create:-moz-placeholder {
+    font-size:60px;
+}
+
+input.create::-moz-placeholder {
+    font-size:60px;
+}
+
+input.create::-webkit-placeholder {
+    font-size:60px;
+}
+
+input.create:-ms-input-placeholder {
+    font-size:60px;
 }

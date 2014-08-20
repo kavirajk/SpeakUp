@@ -12,7 +12,7 @@ $def with (page)
       <div id="navigation">
 	<ul>
 	  <li><a href="/">Home</a></li>
-	  $if content.login:
+	  $if session.login:
 	      $:render_t.login_header()
 	  $else:
 	      $:render_t.guest_header()

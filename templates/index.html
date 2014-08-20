@@ -1,13 +1,18 @@
 $def with (posts)
 
+$if session.login:
+    <div id="new-story"><a href="/create"><strong>New story</strong></a></div>
 
-<div style="margin-right:auto; margin-left:auto;">
+<div id="posts-list">
 
 <strong>Stories</strong>
 
 <ol>
   $for post in posts:
-      <li>$post.title $post.posted_on <em>$post.posted_on</em</li>
+      <li><p><strong>$post.title</strong>&nbsp; &nbsp
+	<em>$datestr(post.posted_on)</em>
+	</p>
+      </li>
 </ol>
 
 </div>
