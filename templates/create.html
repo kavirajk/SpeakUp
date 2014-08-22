@@ -1,7 +1,10 @@
+$def with (message,title,content)
+
 <div id="create-story">
+  <span>$:message</span>
   <form action="/create" method="POST">
-    <textarea name="title" id="create-story-title" placeholder="Title"></textarea></br>
-    <textarea name="content" id="create-story-content" placeholder="Start your story here..."></textarea></br>
-    <input type="submit" value="Post">
+    <textarea name="title" id="create-story-title" placeholder="Title">$:title</textarea></br>
+    <textarea name="content" id="create-story-content" placeholder="Start your story here...">$:content</textarea></br>
+    <input class="btn" id="btn-story-post" type="submit" value="Post">
   </form>
 </div>

@@ -88,7 +88,7 @@ class Signup:
 class Create:
     def GET(self):
         if session.login:
-            return render.create()
+            return render.create(message=None,title=None,content=None)
         else:
             return "Login before submitting your story"
 
@@ -96,7 +96,11 @@ class Create:
         title=web.input().title
         content=web.input().content
 
-#        print title,content
+        actual_title=''.join(title.split())
+        actual_content=''.join(title.split())
+
+        if(actual_title == '' or actual_content == ''):
+            return render.create("Title/Content can't be empty.",title=actual_title,content="A content")
 
         status=insert_post(title,content)
         if status:

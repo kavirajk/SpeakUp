@@ -78,13 +78,36 @@ body {
     color:white;
 }
 
+.btn {
+    background:darkred;
+    margin:20px;
+    border-radius:20px;
+    padding:10px 20px;
+    color:white;
+    text-decoration:none;
+    display:inline-block;
+}
+
+#btn-new-story {
+    float:right;
+}
+
+#btn-story-post {
+    border:none;
+}
+
+
 #create-story {
-    line-height:4em;
     position:fixed;
     height:700px;
     width:900px;
     top:20%;
     left:30%;
+}
+
+#create-story span,form,textarea,input {
+    margin-bottom:20px;
+    display:block;
 }
 
 #create-story-title {
