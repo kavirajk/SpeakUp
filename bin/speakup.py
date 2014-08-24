@@ -1,6 +1,7 @@
 import web
 import hashlib
 from db_model import *
+import datetime
 
 web.config.debug=False
 
@@ -12,7 +13,8 @@ urls=(
     '/show/(\d+)','Show',
     '/edit/(\d+)','Edit',
     '/delete/(\d+)','Delete',
-    '/logout','Logout'
+    '/logout','Logout',
+    '/comment/(\d+)','Comment'
 )
 
 
@@ -25,6 +27,7 @@ globals_render_t = {
 render_t=web.template.render("templates",globals=globals_render_t)
 
 globals_t= {
+    'datetime': datetime,
     'session': session,
     'render_t': render_t,
     'datestr':web.datestr
@@ -58,7 +61,7 @@ class Login:
         if(hexdigest==hexfromdb):
             print "inside if"
             session.login=True
-            session.username=username
+            session.username=username.capitalize()
             raise web.seeother("/")
         else:
             print "inside else"
@@ -97,25 +100,83 @@ class Create:
         content=web.input().content
 
         actual_title=''.join(title.split())
-        actual_content=''.join(title.split())
+        actual_content=''.join(content.split())
 
         if(actual_title == '' or actual_content == ''):
-            return render.create("Title/Content can't be empty.",title=actual_title,content="A content")
+            return render.create("Title/Content can't be empty.",title=title,content=content)
 
-        status=insert_post(title,content)
+        status=insert_post(title,content,session.username)
         if status:
             raise web.seeother("/")
         else:
             return "Something went wrong!"
 
 class Show:
-    pass
-
+    def GET(self,id):
+        post=get_post_by_id(int(id))
+        comments=get_comments_by_post_id(int(id))
+        if comments==[]:
+            comments= ["No comments be the first one to comment.."]
+        return render.show(post=post,comments=comments,message=None)
 class Edit:
-    pass
+        
+    def GET(self,id):
+        if session.login == False:
+            return "UnAuthorized"
+
+        post=get_post_by_id(int(id));
+        return render.edit(post=post,message=None)
+
+    def POST(self,id):
+        if session.login == False:
+            return "UnAuthorized"
+            
+        title=web.input().title
+        content=web.input().content
+        
+        actual_title=''.join(title.split())
+        actual_content=''.join(content.split())
+
+        post=get_post_by_id(int(id))
+
+        if(actual_title == '' or actual_content==''):
+            return render.edit(post=post,message="Title/Content can't be empty")
+
+        status=update_post_by_id(id=id,title=title,content=content)
+
+        if status is False:
+            return "Something went wrong while updating '%s'",title
+
+        raise web.seeother("/")
 
 class Delete:
-    pass
+    def GET(self,id):
+        if session.login == False:
+            return "UnAuthorized"
+        post=get_post_by_id(int(id))
+        return render.delete(post=post,message=None)
+
+    def POST(self,id):
+        if session.login == False:
+            return "UnAuthorized"
+        post=get_post_by_id(int(id))
+        status=delete_post_by_id(int(id))
+        if status is False:
+            return "Something went wrong while deleting '%s' " %post.title
+        raise web.seeother("/")
+
+class Comment:
+    def POST(self,post_id):
+        if session.login == False:
+            return "UnAuthorized"
+        comment=web.input().comment
+        status=insert_comment_by_post_id(comment,post_id,session.username)
+
+        if status == False:
+            return "Something wrong while inserting comment in db"
+            
+        path="/show/%d#comments" % int(post_id)
+        raise web.seeother(path)
 
 class Logout:
     def GET(self):

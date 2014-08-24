@@ -3,14 +3,14 @@ $def with (page)
 <!DOCTYPE html>
 <html>
   <head>
-    <link type="text/css" rel="stylesheet" href="static/base-style.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/base.css"/>
     <title>SpeakUp</title>
   </head>
 
   <body>
-    <div id="banner">
-      <div id="navigation">
-	<ul>
+    <div id="header">
+      <div >
+	<ul class="float-right inline-display">
 	  <li><a href="/">Home</a></li>
 	  $if session.login:
 	      $:render_t.login_header()
@@ -18,11 +18,9 @@ $def with (page)
 	      $:render_t.guest_header()
 	</ul>
       </div>
-
-      <div id="speakup">
-	<p>SpeakUp</p>
-      </div>
-
+      
+      <h1>SpeakUp</h1>
+      
     </div>
 
     $:page

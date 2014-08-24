@@ -1,0 +1,172 @@
+/*
+  Using content-box model. So if we adjust the width and size of a content
+*/
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/*
+  Float navigation bar and "New story" buton right of the page
+*/
+
+.float-right {
+    float: right;
+}
+
+/*
+  Make navigation list as inline
+*/
+
+.inline-display li {
+    display: inline;
+    margin-left: 20px;
+}
+
+/*
+  class to float center the posts list in index page
+*/
+
+.float-center {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 700px;
+}
+
+/*
+  class for rendering all forms in center of the page
+*/
+
+.float-center-form {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+
+/*
+  header of the website
+*/
+
+#header{
+    background: darkred;
+    height: 100px;
+    border: 0;
+    color: white;
+    padding: 10px;
+}
+
+#header a {
+    color: white;
+}
+
+#header h1 {
+}
+
+/*
+  Getting rid of traditional anchor links
+*/
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*
+  Styling "New Story " button
+*/
+
+#new-story {
+    margin: 20px;
+    border-radius: 30%;
+    border:2px solid darkred;
+    padding: 10px 10px;
+}
+
+/*
+  styling all button, common class
+*/
+
+.button {
+    border:0;
+    border-radius: 20px;
+    background: darkred;
+    height: 30px;
+    width: 80px;
+    color: white;
+}
+
+
+/*
+  styling create-story page
+*/
+
+
+.story-title {
+    height: 30px;
+    width: 700px;
+    border:0;
+    font-size: 30px;
+}
+
+.story-content {
+    height: 300px;
+    width: 700px;
+    border:0;
+    font-size: 30px;
+}
+
+
+/*
+  styling the forms
+*/
+
+input {
+    height: 40px;
+    width: 400px;
+}
+
+.form input {
+    margin-bottom: 20px;
+}
+
+.form p {
+    line-height: 2em;
+}
+
+
+/*
+  Styling comment box
+*/
+
+#comment-textarea {
+    border:none;
+    width: 300px;
+    
+}
+
+#comment-list {
+    list-style-type: none;
+    line-height: 2em;
+    margin:0;
+    padding:0;
+}
+
+#comment-list li {
+    border-top: 2px solid darkred;
+}

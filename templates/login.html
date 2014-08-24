@@ -1,19 +1,19 @@
 $def with (message)
 
-<div id="login-form" class="center-align">
+<div class="float-center-form">
   
   <span>$:message</span>
   
-    <form action="/login" method="POST" style="line-height:3em">
+    <form class="form" action="/login" method="POST">
       
       
       <fieldset>
 	
 	<legend>Login</legend>
 	
-	<input type="text" name="username" placeholder="Username"> </br>
-	<input type="password" name="password" placeholder="Password"></br>
-	<input type="submit" value="Login">
+	<input type="text" name="username" placeholder="Username"><br/>
+	<input type="password" name="password" placeholder="Password"><br/>
+	<input class="button" type="submit" value="Login">
 
 	
       </fieldset>

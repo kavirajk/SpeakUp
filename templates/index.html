@@ -1,16 +1,22 @@
 $def with (posts)
 
 $if session.login:
-    <a class="btn" id="btn-new-story" href="/create">New story</a>
+    <div>
+        <a id="new-story" class="float-right" href="/create">New story</a></br>
+    </div>
 
-<div id="posts-list">
+<div class="float-center">
 
-<strong>Stories</strong>
+<p><strong>Stories</strong></p>
 
 <ol>
   $for post in posts:
-      <li><p><strong>$post.title</strong>&nbsp; &nbsp
-	<em>$datestr(post.posted_on)</em>
+      <li><p><a href="/show/$post.id"><strong>$post.title</strong></a>&nbsp; &nbsp
+	  <small>posted by $post.username &mdash;</small>
+	<em>$datestr(post.posted_on,datetime.datetime.now())</em></br>
+	$if session.login and session.username==post.username:
+	    <a href="/edit/$post.id">Edit</a> &nbsp;
+	    <a href="/delete/$post.id">Delete</a>
 	</p>
       </li>
 </ol>

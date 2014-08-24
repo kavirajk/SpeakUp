@@ -1,0 +1,33 @@
+$def with (post,comments,message)
+
+<div class="float-center form">
+
+  <span>$:message</span>
+  $if session.login and session.username== post.username:
+      <a href="/edit/$post.id">Edit</a>&nbsp;
+      <a href="/delete/$post.id">Delete</a><br/><br/>
+  <h2>$post.title</h2>
+  <p>$post.content</p>
+
+  <div id="comments" >
+    <h2>Comments</h2>
+
+    $if session.login:
+       <form action="/comment/$post.id" method="POST" href="#comments">
+	 <textarea name="comment" id="comment-textarea" placeholder="Comment here..."></textarea><br/><br/>
+         <input type="submit" class="button" value="comment">
+       </form>
+
+     <ul id="comment-list">
+       $for comment in comments:
+           <li>
+	     <span>$datestr(comment.posted_on,datetime.datetime.now())</span>
+	     &nbsp;
+	     &nbsp;
+	     <span>$comment.username</span>
+	     <p>$comment.comment</p>
+	   </li>
+     </ul>
+
+  </div>
+</div>

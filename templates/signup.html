@@ -1,19 +1,19 @@
 $def with (message)
 
-<div id="signup-form" class="center-align">
+<div class="float-center-form">
 
   <span>$message</span>
 
-  <form action="/signup" method="POST" style="line-height:3em">
+  <form class="form" action="/signup" method="POST">
 
     <fieldset>
 
       <legend> Sign Up</legend>
 
-    <input type="text" name="username" placeholder="username"></br>
-    <input type="password" name="password" placeholder="password"></br>
-    <input type="password" name="repassword" placeholder="Retype Password"></br>
-    <input type="submit" value="Sign-Up">
+    <input type="text" name="username" placeholder="username"><br/>
+    <input type="password" name="password" placeholder="password"><br/>
+    <input type="password" name="repassword" placeholder="Retype Password"><br/>
+    <input class="button" type="submit" value="Sign-Up">
 
     </fieldset>
   </form>

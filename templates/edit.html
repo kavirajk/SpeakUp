@@ -1,0 +1,12 @@
+$def with (post,message)
+
+<div class="float-center story">
+  <span>$:message</span>
+
+  <form class="form" action="/edit/$post.id" method="POST">
+    <textarea class="story-title" name="title">$post.title</textarea><br/>
+    <textarea class="story-content" name="content">$post.content</textarea><br/>
+    <input class="button" type="submit" value="update">
+  </form>
+</div>
+
