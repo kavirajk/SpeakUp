@@ -1,1 +1,1 @@
-web: python bin/speakup.py
+web: python bin/speakup.py $PORT
