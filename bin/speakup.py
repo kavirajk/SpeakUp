@@ -115,8 +115,6 @@ class Show:
     def GET(self,id):
         post=get_post_by_id(int(id))
         comments=get_comments_by_post_id(int(id))
-        if comments==[]:
-            comments= ["No comments be the first one to comment.."]
         return render.show(post=post,comments=comments,message=None)
 class Edit:
         
