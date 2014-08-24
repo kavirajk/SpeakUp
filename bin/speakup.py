@@ -61,7 +61,7 @@ class Login:
         if(hexdigest==hexfromdb):
             print "inside if"
             session.login=True
-            session.username=username.capitalize()
+            session.username=username
             raise web.seeother("/")
         else:
             print "inside else"

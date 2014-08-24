@@ -1,7 +1,10 @@
 import web
 import datetime
 
-db=web.database(dbn='mysql',db='SpeakUp',user='root')
+#db=web.database(dbn='mysql',db='SpeakUp',user='root')
+
+db=web.database(dbn='postgres',db='speakup',user='postgres',password='postgres')
+
 
 def get_all_post():
     result=db.select('entries',order='posted_on DESC')
