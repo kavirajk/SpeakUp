@@ -1,10 +1,10 @@
-###SpeakUp
+##SpeakUp
 
 > Kaviraj
 
 A Simple blog application using webpy and postgresql. It features simple login/signup mechanism using sessions.
 
-###Requirements
+##Requirements
 <ol>
   
   <li>python 2.7.5 or above</li>
@@ -13,13 +13,16 @@ A Simple blog application using webpy and postgresql. It features simple login/s
   
 </ol>
 
-###How to Run
+##How to Run
 
-##Make postgresql ready
+###Make postgresql ready
 
-psql speakup < schema.sql
+<pre>
+bash-4.2$ psql speakup &lt; schema.sql
+</pre>
 
-Go to the project root directory and execute following command.
+###Go to the project root directory and execute following command.
 
-python bin/speakup.py
-
+<pre>
+bash-4.2$ python bin/speakup.py
+</pre>
