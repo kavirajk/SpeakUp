@@ -18,7 +18,7 @@ A Simple blog application using webpy and postgresql. It features simple login/s
 ###Make postgresql ready
 
 <pre>
-bash-4.2$ psql speakup &lt; schema.sql
+bash-4.2$ psql -U postgres speakup &lt; schema.sql
 </pre>
 
 ###Go to the project root directory and execute following command.
