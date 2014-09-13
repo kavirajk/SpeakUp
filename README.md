@@ -28,3 +28,5 @@ bash-4.2$ pg_restore -U postgres -d speakup schema.sql
 bash-4.2$ python bin/speakup.py
 </pre>
 
+
+
