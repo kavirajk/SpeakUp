@@ -30,3 +30,5 @@ bash-4.2$ python bin/speakup.py
 
 
 
+
+
